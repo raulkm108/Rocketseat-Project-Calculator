@@ -2,9 +2,13 @@ class Calculator:
 
     def all_count(self, number) -> float:
         new_number = number/3
-        a = self.__second_count(new_number) 
+        print(new_number)
+        a = self.__second_count(new_number)
+        print(a) 
         b = self.__third_count(new_number)
+        print(b)
         c = self.__fourth_count(new_number)
+        print(c)
 
         return print((a + b + c))
 
