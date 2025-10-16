@@ -1,5 +1,5 @@
 from typing import Dict
-from flask import request as FlaskRequest
+from flask import request as FlaskRequest, jsonify
 
 class Calculator1:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
@@ -24,4 +24,9 @@ class Calculator1:
         new_number = (((splitted_value/4) + 7)**2)*0.257
         return new_number
     
+    def __second_process(self, splitted_value: float) -> float:
+        new_number = ((splitted_value**2.121)/5) + 1
+        return new_number
     
+    def __third_process(self, splitted_value: float) -> float:
+        return splitted_value
