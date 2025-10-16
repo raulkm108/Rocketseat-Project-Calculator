@@ -10,7 +10,8 @@ class Calculator1:
         second_value = self.__second_process(splitted_value)
         third_value = self.__third_process(splitted_value)
         final_value = (first_value + second_value + third_value)
-        return jsonify ({"Final value": final_value})
+        return (final_value)
+       # return jsonify ({"Final value": final_value})
         
     def __validate_body(self, body: Dict) -> float: 
         if "number" not in body:
