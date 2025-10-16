@@ -6,6 +6,11 @@ class Calculator1:
         body = request.json
         input_data = self.__validate_body(body)
         splitted_value = input_data/3
+        first_value = self.__first_process(splitted_value)
+        second_value = self.__second_process(splitted_value)
+        third_value = self.__third_process(splitted_value)
+        final_value = (first_value + second_value + third_value)
+        return jsonify ({"Final value": final_value})
         
     def __validate_body(self, body: Dict) -> float: 
         if "number" not in body:
@@ -18,3 +23,5 @@ class Calculator1:
     def __first_process(self, splitted_value: float) -> float:
         new_number = (((splitted_value/4) + 7)**2)*0.257
         return new_number
+    
+    
