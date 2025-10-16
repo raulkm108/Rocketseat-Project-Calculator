@@ -19,6 +19,6 @@ class Calculator:
     def __third_count(self, number) -> float:
         new_number = ((number**2.121)/5) + 1
         return new_number
-
+ 
     def __fourth_count(self, number) -> float:
         return number
