@@ -12,5 +12,7 @@ def test_calculate():
     calculator_1 = Calculator1()
 
     answer = calculator_1.calculate(mock_request)
-    print()
-    print(answer)
+    
+    assert "data" in answer
+    assert "Calculator" in answer["data"]
+    assert "Result" in answer["data"]
