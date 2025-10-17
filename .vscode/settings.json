@@ -3,5 +3,6 @@
         "**/__pycache__": true,
         "**/.gitignore": true,
         "**/.gitattributes": true,
+        "**/.pytest_cache": true
     }
 }
