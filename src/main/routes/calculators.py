@@ -8,4 +8,4 @@ def calculator_1():
     calc = Calculator1()
     final_result = calc.calculate(request)
 
-    return jsonify ({"Final Result": final_result}), 200
+    return jsonify (final_result)
