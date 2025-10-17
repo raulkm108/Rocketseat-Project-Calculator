@@ -10,7 +10,8 @@ class Calculator1:
         second_value = self.__second_process(splitted_value)
         third_value = self.__third_process(splitted_value)
         final_value = (first_value + second_value + third_value)
-        return (final_value)
+        final_value_edited = self.__format_response(final_value)
+        return (final_value_edited)
        # return jsonify ({"Final value": final_value})
         
     def __validate_body(self, body: Dict) -> float: 
@@ -31,3 +32,11 @@ class Calculator1:
     
     def __third_process(self, splitted_value: float) -> float:
         return splitted_value
+    
+    def __format_response(self, final_result: float) -> Dict:
+        return {
+            "data": {
+                "Calculator": 1,
+                "Result": final_result
+            }
+        }
