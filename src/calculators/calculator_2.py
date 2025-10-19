@@ -7,8 +7,8 @@ class Calculator2:
         body = request.json
         input_data = self.__validate_body(body)
         first_edited_list = self.__first_process(input_data)
-        final_value = self.__second_process(first_edited_list)
-        final_edited_value = self.__format_response(final_value)
+        final_result = self.__second_process(first_edited_list)
+        final_edited_value = self.__format_response(final_result)
         return (final_edited_value)
         
     def __validate_body(self, body: Dict) -> List[float]: 
