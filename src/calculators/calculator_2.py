@@ -1,5 +1,5 @@
 from typing import Dict, List
-from flask import request as FlaskRequest, jsonify
+from flask import request as FlaskRequest, jsonify, Response
 import numpy as np
 
 class Calculator2:
@@ -16,7 +16,7 @@ class Calculator2:
             raise Exception("Wrong body format!")
 
         if len(body["numbers"]) < 2:
-            raise Exception("You need 2 values or more!")
+            raise Exception("You need 2 numbers or more!")
             
         input_data = body["numbers"]
         return input_data
@@ -38,6 +38,6 @@ class Calculator2:
         return {
             "data": {
                 "Calculator": 2,
-                "Result": round(final_result,2)
+                "Result": round(final_result,6)
             }
         }
