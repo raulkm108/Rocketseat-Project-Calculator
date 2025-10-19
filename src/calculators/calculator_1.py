@@ -12,13 +12,11 @@ class Calculator1:
         final_value = (first_value + second_value + third_value)
         final_value_edited = self.__format_response(final_value)
         return (final_value_edited)
-       # return jsonify ({"Final value": final_value})
         
     def __validate_body(self, body: Dict) -> float: 
         if "number" not in body:
             raise Exception("Wrong body format!")
             
-        
         input_data = body["number"]
         return input_data
     
