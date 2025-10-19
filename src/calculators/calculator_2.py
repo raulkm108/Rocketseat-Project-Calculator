@@ -14,6 +14,9 @@ class Calculator2:
     def __validate_body(self, body: Dict) -> List[float]: 
         if "numbers" not in body:
             raise Exception("Wrong body format!")
+
+        if len(body["numbers"]) < 2:
+            raise Exception("You need 2 values or more!")
             
         input_data = body["numbers"]
         return input_data
