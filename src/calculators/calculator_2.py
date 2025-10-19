@@ -1,6 +1,6 @@
 from typing import Dict, List
 from flask import request as FlaskRequest, jsonify
-from drivers.numpy_handler import NumpyHandler
+from ..drivers.numpy_handler import NumpyHandler
 
 class Calculator2:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
