@@ -5,9 +5,13 @@ import numpy as np
 class Calculator2:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
         body = request.json
+        print(body)
         input_data = self.__validate_body(body)
+        print(input_data)
         first_edited_list = self.__first_process(input_data)
+        print(first_edited_list)
         final_result = self.__second_process(first_edited_list)
+        print(final_result)
         final_edited_value = self.__format_response(final_result)
         return (final_edited_value)
         
@@ -27,7 +31,9 @@ class Calculator2:
     
     def __second_process(self, first_edited_list: List[float]) -> float:
         np_list = np.array(first_edited_list)
+        print(np_list)
         std_dev = np.std(np_list)
+        print(std_dev)
         final_result = 1/std_dev
         return final_result
     
