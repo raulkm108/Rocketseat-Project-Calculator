@@ -1,6 +1,6 @@
 from typing import Dict, List
-from flask import request as FlaskRequest, jsonify, Response
-import numpy as np
+from flask import request as FlaskRequest, jsonify
+from drivers.numpy_handler import NumpyHandler
 
 class Calculator2:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
@@ -29,8 +29,10 @@ class Calculator2:
         return new_list
     
     def __second_process(self, first_edited_list: List[float]) -> float:
-        np_list = np.array(first_edited_list)
-        std_dev = np.std(np_list)
+
+        handler = NumpyHandler()
+        np_list = handler.make_array(first_edited_list)
+        std_dev = handler.standard_derivation(np_list)
         final_result = 1/std_dev
         return final_result
     
