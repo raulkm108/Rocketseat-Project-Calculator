@@ -13,4 +13,7 @@ def test_calculate():
     print()
     print(edited_value)
 
-    
+    assert isinstance(edited_value, dict)
+    assert edited_value == {'data': {'Calculator': 2, 'Result': 0.080959}}
+
+
