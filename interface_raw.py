@@ -9,7 +9,12 @@ class NotificationSender(ABC):
 class EmailNotificationSender(NotificationSender):
 
     def send_notification(self, message: str) -> None:
-        print(message)
+        print(f"Email message - {message}")
+
+class SMSNotificationSender(NotificationSender):
+
+    def send_notification(self, message: str) -> None:
+        print(f"SMS message - {message}")
 
 obj = EmailNotificationSender()
 obj.send_notification( "Hello World!")
