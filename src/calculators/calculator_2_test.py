@@ -10,9 +10,7 @@ def test_calculate():
 
     calculator_2 = Calculator2()
     edited_value = calculator_2.calculate(mock_request)
-    print()
-    print(edited_value)
-
+    
     assert isinstance(edited_value, dict)
     assert edited_value == {'data': {'Calculator': 2, 'Result': 0.080959}}
 
