@@ -9,6 +9,7 @@ class Calculator2:
         first_edited_list = self.__first_process(input_data)
         final_result = self.__second_process(first_edited_list)
         final_edited_value = self.__format_response(final_result)
+        print(final_edited_value)
         return (final_edited_value)
         
     def __validate_body(self, body: Dict) -> List[float]: 
@@ -42,6 +43,6 @@ class Calculator2:
         return {
             "data": {
                 "Calculator": 2,
-                "Result": round(final_result,6)
+                "Result": round(final_result, 6)
             }
         }
