@@ -26,6 +26,8 @@ class Calculator2:
         for value in input_data:
             new_value = (value*11)**0.95
             new_list.append(new_value)
+            #Another solution would be: new_list = [(num * 11) ** 0.95 for num in input data]
+            #This solves in one single line, but it's less readable
         return new_list
     
     def __second_process(self, first_edited_list: List[float]) -> float:
