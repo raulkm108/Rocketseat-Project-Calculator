@@ -9,4 +9,8 @@ def test_calculate():
     mock_request = MockRequest({ "numbers": [2.12, 4.62, 1.32]})
 
     calculator_2 = Calculator2()
-    calculator_2.calculate(mock_request)
+    edited_value = calculator_2.calculate(mock_request)
+    print()
+    print(edited_value)
+
+    
