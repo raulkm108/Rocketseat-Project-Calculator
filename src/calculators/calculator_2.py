@@ -34,8 +34,7 @@ class Calculator2:
     def __second_process(self, first_edited_list: List[float]) -> float:
 
         handler = NumpyHandler()
-        np_list = handler.make_array(first_edited_list)
-        std_dev = handler.standard_derivation(np_list)
+        std_dev = handler.standard_derivation(first_edited_list)
         final_result = 1/std_dev
         return final_result
     
@@ -43,6 +42,6 @@ class Calculator2:
         return {
             "data": {
                 "Calculator": 2,
-                "Result": round(final_result, 6)
+                "Result": round(float(final_result), 6)
             }
         }
