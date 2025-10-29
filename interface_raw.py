@@ -16,5 +16,14 @@ class SMSNotificationSender(NotificationSender):
     def send_notification(self, message: str) -> None:
         print(f"SMS message - {message}")
 
-obj = EmailNotificationSender()
-obj.send_notification( "Hello World!")
+class Notificator:
+    def __init__(self, notification_sender: NotificationSender) -> None:
+        self.__notification_sender = notification_sender
+
+
+    def send(self, message: str) -> None:
+
+        self.__notification_sender.send_notification(message)
+
+obj = Notificator(SMSNotificationSender())
+obj.send('Hello World')
