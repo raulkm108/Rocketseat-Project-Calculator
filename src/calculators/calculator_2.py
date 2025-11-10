@@ -1,8 +1,13 @@
 from typing import Dict, List
 from flask import request as FlaskRequest, jsonify
-from ..drivers.numpy_handler import NumpyHandler
+from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 
 class Calculator2:
+    def __init__(self, driver_handler: DriverHandlerInterface) -> None:
+        self.__driver_handler = driver_handler
+
+
+        pass
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
         body = request.json
         input_data = self.__validate_body(body)
@@ -33,8 +38,7 @@ class Calculator2:
     
     def __second_process(self, first_edited_list: List[float]) -> float:
 
-        handler = NumpyHandler()
-        std_dev = handler.standard_derivation(first_edited_list)
+        std_dev = self.__driver_handler.standard_derivation(first_edited_list)
         final_result = 1/std_dev
         return final_result
     
