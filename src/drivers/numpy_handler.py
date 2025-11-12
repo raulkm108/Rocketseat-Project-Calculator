@@ -11,3 +11,9 @@ class NumpyHandler(DriverHandlerInterface):
     
     def make_array(self, numbers: List[float]) -> "numpy.ndarray":
         return self.__np.array(numbers) 
+    
+    def make_variance(self, numbers: List[float]) -> float:
+        return self.__np.var(numbers)
+    
+    def make_multiply(self,numbers: List[float]) ->float:
+        return self.__np.prod(numbers)
