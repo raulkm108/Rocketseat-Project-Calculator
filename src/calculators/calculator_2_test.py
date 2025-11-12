@@ -1,5 +1,5 @@
 from typing import Dict, List
-from.calculator_2 import Calculator2
+from .calculator_2 import Calculator2
 from src.drivers.numpy_handler import NumpyHandler
 from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 
