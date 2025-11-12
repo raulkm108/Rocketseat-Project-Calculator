@@ -10,18 +10,30 @@ class Calculator3:
 
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
         body = request.json
-        comparison_response = self.multiplication_variance_comparison(body)
-        pass
+        validated_response = self.__validate_body(body)
+        comparison_response = self.__multiplication_variance_comparison(validated_response)
+        edited_final_result = self.__format_response(comparison_response)
+        return edited_final_result
+    
+    def __validate_body(self, body: Dict) -> List[float]:
+        if "numbers" not in body:
+            raise Exception("Wrong body format!")
 
-    def multiplication_variance_comparison(self, input_data: List) -> bool:
+        if len(body["numbers"]) < 2:
+            raise Exception("You need 2 numbers or more!")
+            
+        input_data = body["numbers"]
+        return input_data
+
+    def __multiplication_variance_comparison(self, input_data: List) -> bool:
         variance = self.__driver_handler.make_variance(input_data)
         multiplication = self.__driver_handler.make_multiply(input_data)
-        if variance > multiplication:
+        if variance < multiplication:
             return "Positive"
         else:
             return "Negative"
         
-    def format_response(self, comparison_response: str) -> Dict:
+    def __format_response(self, comparison_response: str) -> Dict:
         return {
             "data": {
                 "Calculator": 3,
