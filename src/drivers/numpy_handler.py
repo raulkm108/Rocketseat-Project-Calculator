@@ -1,8 +1,8 @@
 import numpy
 from typing import List
-from .interfaces.driver_handler_interface import DriverHandlerInterface
+from .interfaces.driver_handler_interface import StandardDeviationDriverHandlerInterface, VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface
 
-class NumpyHandler(DriverHandlerInterface):
+class NumpyHandler(StandardDeviationDriverHandlerInterface, VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface):
     def __init__(self) -> None:
         self.__np = numpy
 

@@ -3,5 +3,5 @@ from src.drivers.numpy_handler import NumpyHandler
 
 def calculator3_factory():
     numpy_handler = NumpyHandler()
-    calc = Calculator3(numpy_handler)
+    calc = Calculator3(numpy_handler, numpy_handler)
     return calc

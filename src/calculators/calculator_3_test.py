@@ -1,17 +1,14 @@
 from typing import Dict, List
 from .calculator_3 import Calculator3
 from src.drivers.numpy_handler import NumpyHandler
-from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from src.drivers.interfaces.driver_handler_interface import VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface
 
 class MockRequest:
     def __init__(self, body: Dict) -> None:
         self.json = body
 
-class MockDriverHandler(DriverHandlerInterface):
+class MockDriverHandler(VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface):
 
-    def standard_derivation(self, numbers: List[float]) -> float:
-        return 3
-    
     def make_variance(self, numbers: List[float]) -> float:
         return 3
 
@@ -23,7 +20,7 @@ def test_calculate_integration():
     mock_request = MockRequest({ "numbers": [1, 2, 3, 50]})
 
     driver = NumpyHandler()
-    calculator_3 = Calculator3(driver)
+    calculator_3 = Calculator3(driver, driver)
     edited_value = calculator_3.calculate(mock_request)
     
     print(edited_value)
@@ -34,7 +31,7 @@ def test_calculate():
     mock_request = MockRequest({ "numbers": [1, 2, 3, 50]})
 
     driver = MockDriverHandler()
-    calculator_3 = Calculator3(driver)
+    calculator_3 = Calculator3(driver, driver)
     edited_value = calculator_3.calculate(mock_request)
     
     print(edited_value)

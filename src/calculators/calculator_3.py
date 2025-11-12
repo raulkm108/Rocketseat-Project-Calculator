@@ -1,11 +1,12 @@
-from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from src.drivers.interfaces.driver_handler_interface import VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface
 from flask import request as FlaskRequest
 from typing import Dict, List
 
 
 class Calculator3:
-    def __init__(self, driver_handler: DriverHandlerInterface) -> None:
-        self.__driver_handler = driver_handler
+    def __init__(self, variance_driver_handler: VarianceDriverHandlerInterface, multiply_driver_handler: MultiplyDriverHandlerInterface) -> None:
+        self.__variance_driver_handler = variance_driver_handler
+        self.__multiply_driver_handler = multiply_driver_handler
         pass
 
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
@@ -26,8 +27,8 @@ class Calculator3:
         return input_data
 
     def __multiplication_variance_comparison(self, input_data: List) -> bool:
-        variance = self.__driver_handler.make_variance(input_data)
-        multiplication = self.__driver_handler.make_multiply(input_data)
+        variance = self.__variance_driver_handler.make_variance(input_data)
+        multiplication = self.__multiply_driver_handler.make_multiply(input_data)
         if variance < multiplication:
             return "Positive"
         else:

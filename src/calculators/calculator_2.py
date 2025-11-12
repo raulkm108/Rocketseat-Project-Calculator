@@ -1,9 +1,9 @@
 from typing import Dict, List
 from flask import request as FlaskRequest, jsonify
-from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+from src.drivers.interfaces.driver_handler_interface import StandardDeviationDriverHandlerInterface
 
 class Calculator2:
-    def __init__(self, driver_handler: DriverHandlerInterface) -> None:
+    def __init__(self, driver_handler: StandardDeviationDriverHandlerInterface) -> None:
         self.__driver_handler = driver_handler
 
         pass
