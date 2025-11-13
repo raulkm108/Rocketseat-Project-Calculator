@@ -1,6 +1,7 @@
 from src.drivers.interfaces.driver_handler_interface import VarianceDriverHandlerInterface, MultiplyDriverHandlerInterface
 from flask import request as FlaskRequest
 from typing import Dict, List
+from src.errors.http_unprocessable_entity import HttpUnprocessableEntityError
 
 
 class Calculator3:
@@ -20,10 +21,10 @@ class Calculator3:
     
     def __validate_body(self, body: Dict) -> List[float]:
         if "numbers" not in body:
-            raise Exception("Wrong body format!")
+            raise HttpUnprocessableEntityError("Wrong body format!")
 
         if len(body["numbers"]) < 2:
-            raise Exception("You need 2 numbers or more!")
+            raise HttpUnprocessableEntityError("You need 2 numbers or more!")
             
         input_data = body["numbers"]
         return input_data
