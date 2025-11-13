@@ -26,9 +26,18 @@ class Calculator3:
         input_data = body["numbers"]
         return input_data
 
-    def __multiplication_variance_comparison(self, input_data: List) -> bool:
-        variance = self.__variance_driver_handler.make_variance(input_data)
-        multiplication = self.__multiply_driver_handler.make_multiply(input_data)
+    def __calculate_variance(self, numbers: List[float]) -> float:
+        variance = self.__variance_driver_handler.make_variance(numbers)
+        return variance
+    
+    def __calculate_multiplication(self, numbers: List[float]) -> float:
+        multiplication = self.__multiply_driver_handler.make_multiply(numbers)
+        return multiplication
+
+
+    def __multiplication_variance_comparison(self, input_data: List[float]) -> str:
+        variance = self.__calculate_variance(input_data)
+        multiplication = self.__calculate_multiplication(input_data)
         if variance < multiplication:
             return "Positive"
         else:
