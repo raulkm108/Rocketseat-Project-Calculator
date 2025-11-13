@@ -12,7 +12,9 @@ class Calculator3:
     def calculate(self, request: FlaskRequest) -> Dict: # type: ignore
         body = request.json
         validated_response = self.__validate_body(body)
-        comparison_response = self.__multiplication_variance_comparison(validated_response)
+        variance = self.__calculate_variance(validated_response)
+        multiplication = self.__calculate_multiplication(validated_response)
+        comparison_response = self.__multiplication_variance_comparison(variance, multiplication)
         edited_final_result = self.__format_response(comparison_response)
         return edited_final_result
     
@@ -35,9 +37,7 @@ class Calculator3:
         return multiplication
 
 
-    def __multiplication_variance_comparison(self, input_data: List[float]) -> str:
-        variance = self.__calculate_variance(input_data)
-        multiplication = self.__calculate_multiplication(input_data)
+    def __multiplication_variance_comparison(self, variance: float, multiplication: float) -> str:
         if variance < multiplication:
             return "Positive"
         else:
