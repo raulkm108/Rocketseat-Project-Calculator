@@ -15,5 +15,8 @@ class NumpyHandler(StandardDeviationDriverHandlerInterface, VarianceDriverHandle
     def make_variance(self, numbers: List[float]) -> float:
         return self.__np.var(numbers)
     
-    def make_multiply(self,numbers: List[float]) ->float:
+    def make_multiply(self,numbers: List[float]) -> float:
         return self.__np.prod(numbers)
+    
+    def make_arithmetic_mean(self, numbers: List[float]) -> float:
+        return self.__np.mean(numbers)

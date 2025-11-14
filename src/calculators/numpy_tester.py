@@ -7,3 +7,6 @@ print (var)
 
 multiply = numpy.prod(list)
 print (multiply)
+
+arithmetic_mean = numpy.mean(list)
+print (arithmetic_mean)

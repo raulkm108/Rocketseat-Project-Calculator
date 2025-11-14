@@ -15,3 +15,8 @@ class MultiplyDriverHandlerInterface(ABC):
     @abstractmethod
     def make_multiply(self, numbers: List[float]) -> float:
         pass
+
+class ArithmeticMeanDriverHandlerInterface(ABC):
+    @abstractmethod
+    def make_arithmetic_mean(self, numbers: List[float]) -> float:
+        pass
