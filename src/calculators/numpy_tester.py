@@ -1,6 +1,6 @@
 import numpy
 
-list = [1,2,3, 50]
+list = [1,2,3,50]
 
 var = numpy.var(list)
 print (var)
